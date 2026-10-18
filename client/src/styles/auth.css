@@ -1,0 +1,337 @@
+
+/* ========================================
+   CollabSphere — Authentication Pages
+   Dark navy + violet theme
+======================================== */
+
+.auth-page {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  overflow: hidden;
+  padding: 40px 20px;
+  background:
+    radial-gradient(
+      ellipse at 15% 15%,
+      rgb(139 92 246 / 13%),
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse at 85% 85%,
+      rgb(99 102 241 / 10%),
+      transparent 42%
+    ),
+    #0b0b12;
+  color: #eeedf7;
+}
+
+.auth-page::before,
+.auth-page::after {
+  position: absolute;
+  z-index: -1;
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgb(167 139 250 / 9%);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+
+.auth-page::before {
+  top: -170px;
+  left: -120px;
+  box-shadow:
+    0 0 0 35px rgb(167 139 250 / 3%),
+    0 0 0 70px rgb(167 139 250 / 2%);
+}
+
+.auth-page::after {
+  right: -160px;
+  bottom: -180px;
+  box-shadow:
+    0 0 0 35px rgb(139 92 246 / 3%),
+    0 0 0 70px rgb(139 92 246 / 2%);
+}
+
+/* Authentication card */
+
+.auth-card {
+  width: min(100%, 450px);
+  padding: 40px;
+  border: 1px solid #302b43;
+  border-radius: 24px;
+  background: linear-gradient(
+    145deg,
+    rgb(25 24 39 / 98%),
+    rgb(17 17 28 / 98%)
+  );
+  box-shadow:
+    0 25px 80px rgb(0 0 0 / 35%),
+    0 0 45px rgb(139 92 246 / 5%);
+  animation: auth-appear 0.55s ease both;
+}
+
+/* Brand */
+
+.auth-card > .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 34px;
+  color: #f4f0ff;
+  font-size: 1.08rem;
+  font-weight: 750;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.auth-card > .brand:hover {
+  color: #c4b5fd;
+}
+
+.auth-card .brand-icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid rgb(167 139 250 / 35%);
+  border-radius: 13px;
+  background: linear-gradient(135deg, #8b5cf6, #6d4acb);
+  box-shadow: 0 5px 20px rgb(139 92 246 / 22%);
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+/* Headings and descriptions */
+
+.auth-card h1 {
+  margin: 0 0 12px;
+  color: #f5f3ff;
+  font-size: clamp(1.8rem, 5vw, 2.15rem);
+  font-weight: 750;
+  letter-spacing: -0.045em;
+  line-height: 1.2;
+}
+
+.auth-card > p {
+  color: #a6a2b9;
+  font-size: 0.96rem;
+  line-height: 1.75;
+}
+
+/* Form layout */
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.auth-card label {
+  margin-top: 9px;
+  color: #d6d2e6;
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+
+/* Input fields */
+
+.auth-card input {
+  width: 100%;
+  min-height: 48px;
+  padding: 13px 14px;
+  border: 1px solid #373249;
+  border-radius: 11px;
+  outline: none;
+  background: #10101b;
+  color: #f4f0ff;
+  font: inherit;
+  font-size: 0.95rem;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.auth-card input::placeholder {
+  color: #77738c;
+}
+
+.auth-card input:hover {
+  border-color: #51466e;
+}
+
+.auth-card input:focus {
+  border-color: #a78bfa;
+  outline: none;
+  background: #141321;
+  box-shadow: 0 0 0 3px rgb(167 139 250 / 13%);
+}
+
+.auth-card input:focus-visible {
+  border-color: #a78bfa;
+}
+
+/* Browser autofill */
+
+.auth-card input:-webkit-autofill,
+.auth-card input:-webkit-autofill:hover,
+.auth-card input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #f4f0ff;
+  box-shadow: 0 0 0 1000px #141321 inset;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+/* Primary button */
+
+.auth-card .primary-button {
+  display: block;
+  width: 100%;
+  min-height: 49px;
+  margin-top: 16px;
+  padding: 13px 18px;
+  border: 1px solid #9675f5;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #8b5cf6, #7046d0);
+  box-shadow: 0 8px 22px rgb(139 92 246 / 18%);
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.96rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+.auth-card .primary-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgb(139 92 246 / 30%);
+  filter: brightness(1.08);
+}
+
+.auth-card .primary-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.auth-card .primary-button:focus-visible {
+  outline: 2px solid #c4b5fd;
+  outline-offset: 4px;
+}
+
+.auth-card .primary-button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+  box-shadow: none;
+}
+
+/* Error messages */
+
+.auth-error {
+  margin: 8px 0 0;
+  padding: 11px 13px;
+  border: 1px solid rgb(248 113 113 / 25%);
+  border-radius: 10px;
+  background: rgb(127 29 29 / 18%);
+  color: #fca5a5;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Login/register switch */
+
+.auth-card .auth-switch {
+  margin-top: 26px;
+  color: #a6a2b9;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.auth-switch a,
+.auth-home {
+  color: #b8a1ff;
+  font-weight: 650;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.auth-switch a:hover,
+.auth-home:hover {
+  color: #d5c7ff;
+  text-decoration: underline;
+}
+
+/* Back to homepage */
+
+.auth-home {
+  display: block;
+  margin-top: 20px;
+  color: #aaa4c0;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Route fallback message */
+
+.route-message {
+  padding: 60px 20px;
+  color: #eeedf7;
+  text-align: center;
+}
+
+/* Entrance animation */
+
+@keyframes auth-appear {
+  from {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive layout */
+
+@media (max-width: 480px) {
+  .auth-page {
+    padding: 24px 15px;
+  }
+
+  .auth-card {
+    padding: 29px 22px;
+    border-radius: 20px;
+  }
+
+  .auth-card > .brand {
+    margin-bottom: 28px;
+  }
+
+  .auth-card h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .auth-card {
+    animation: none;
+  }
+
+  .auth-card *,
+  .auth-page * {
+    scroll-behavior: auto;
+    transition: none !important;
+  }
+}

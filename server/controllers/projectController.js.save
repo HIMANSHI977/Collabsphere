@@ -1,0 +1,24 @@
+
+import Project from "../models/Project.js";
+
+export const createProject = async (req, res, next) => {
+  try {
+    const { name, description = "", status = "planning" } = req.body;
+
+    if (typeof name !== "string" || name.trim().length < 2) {
+      return res.status(400).json({
+        success: false,
+        message: "Project name must contain at least 2 characters",
+      });
+    }
+
+    const project = await Project.create({
+      name: name.trim(),
+      description,
+      status,
+      createdBy: req.user._id,
+    });
+
+    return res.status(201).json({
+      success: true,
+      message:

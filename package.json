@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.18.4"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6"
+  },
+  "scripts": {
+    "dev": "concurrently -n CLIENT,SERVER \"npm run dev --prefix client\" \"npm run dev --prefix server\"",
+    "test": "npm test --prefix server",
+    "lint": "npm run lint --prefix client",
+    "build": "npm run build --prefix client"
+  }
+}

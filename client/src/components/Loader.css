@@ -1,0 +1,26 @@
+.app-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  color: #68428b;
+  font-size: 0.92rem;
+}
+
+.app-loader-indicator {
+  width: 17px;
+  height: 17px;
+  border: 2px solid #e9ddf3;
+  border-top-color: #76509b;
+  border-radius: 50%;
+  animation: app-loader-spin 0.8s linear infinite;
+}
+
+@keyframes app-loader-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-loader-indicator { animation-duration: 1.8s; }
+}
